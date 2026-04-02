@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 45 80% 60%;
+    --card: 0 0% 5%;
+    --card-foreground: 45 80% 60%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 45 80% 60%;
+    --primary: 45 80% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 45 80% 60%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 45 80% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 45 80% 50%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 45 80% 60%;
+    --sidebar-primary: 45 80% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 45 80% 60%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 45 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-dark-950 text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-dark {
+    @apply bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950;
+  }
+  
+  .border-gold-glow {
+    @apply border-gold-500/30 shadow-[0_0_20px_rgba(212,167,44,0.15)];
+  }
+  
+  .hover-gold-glow {
+    @apply hover:shadow-[0_0_30px_rgba(212,167,44,0.3)] transition-shadow duration-300;
+  }
+  
+  .glass-dark {
+    @apply bg-dark-950/80 backdrop-blur-xl border border-dark-800;
+  }
+  
+  .glass-gold {
+    @apply bg-gold-500/10 backdrop-blur-xl border border-gold-500/30;
+  }
+  
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 167, 44, 0.3) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(212, 167, 44, 0.3);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 167, 44, 0.5);
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
